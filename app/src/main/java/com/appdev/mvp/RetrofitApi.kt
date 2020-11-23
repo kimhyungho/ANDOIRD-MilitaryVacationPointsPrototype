@@ -1,19 +1,25 @@
 package com.appdev.mvp
 
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.Callback
+import retrofit2.http.*
+
 
 interface RetrofitApi {
+
     @GET("accounts/auth")
     fun login(
     ): Call<LoginResult>
 
-    @POST("auth")
+
+    @Headers(
+        "accept: application/json",
+        "content-type: application/json"
+    )
+    @POST("accounts/auth")
     fun signUp(
-
+        @Body body: SignUpRequest
     ): Call<SignUpResult>
-
 
 //    @POST("post/lol/updatepost")
 //    @FormUrlEncoded

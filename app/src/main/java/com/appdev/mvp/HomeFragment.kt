@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
@@ -16,6 +17,7 @@ import java.util.*
 class HomeFragment : Fragment() {
 
     lateinit var calendarView: MaterialCalendarView
+    lateinit var searchView: ImageView
 
     val pinkDateList: MutableList<String> = Arrays.asList(
         "2020-11-01",
@@ -46,12 +48,19 @@ class HomeFragment : Fragment() {
 
     private fun initView(view: View) {
         calendarView = view.findViewById<MaterialCalendarView>(R.id.calendar)
+        searchView = view.findViewById<ImageView>(R.id.search)
+
     }
 
     private fun initListener() {
         calendarView.showOtherDates = MaterialCalendarView.SHOW_ALL
         setEvent(pinkDateList, green)
         setEvent(grayDateList, gray)
+
+        searchView.setOnClickListener {
+            val bottomSheet = SearchFragment()
+            bottomSheet.show(activity!!.supportFragmentManager, bottomSheet.tag)
+        }
 
     }
 

@@ -12,7 +12,8 @@
     <string name="start">시작</string>
     <string name="finish">종료</string>
     <string name="register">등록</string>
-    <string name="per_day">1일당</string>
+    <string name="per_day">해당 일자에</string>
+    <string name="use_point">포인트 사용</string>
     <string name="home">홈</string>
     <string name="my_info">내 정보</string>
     <string name="setting">설정</string>

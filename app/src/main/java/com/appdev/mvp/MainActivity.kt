@@ -14,12 +14,17 @@ class MainActivity : AppCompatActivity() {
 
         viewpager2.adapter = ViewPagerAdapter(this)
 
-        TabLayoutMediator(tablayout,viewpager2){tab,position->
-            val tabLayoutTextArray = arrayOf("홈","내역 확인", "내 정보", "설정")
-//            val tabLayoutIconArray = arrayOf(R.drawable.ic_view_list_48px,R.drawable.ic_info_48px)
+        TabLayoutMediator(tablayout, viewpager2) { tab, position ->
+            val tabLayoutTextArray = arrayOf("홈", "내역 확인", "내 정보", "설정")
+            val tabLayoutIconArray = arrayOf(
+                R.drawable.ic_baseline_calendar_today_24,
+                R.drawable.ic_baseline_assignment_24,
+                R.drawable.ic_baseline_person_outline_24,
+                R.drawable.ic_baseline_dehaze_24
+            )
 
             tab.text = tabLayoutTextArray[position]
-//            tab.setIcon(tabLayoutIconArray[position])
+            tab.setIcon(tabLayoutIconArray[position])
         }.attach()
 
     }

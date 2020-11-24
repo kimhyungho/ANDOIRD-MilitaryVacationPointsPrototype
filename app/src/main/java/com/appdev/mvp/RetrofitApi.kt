@@ -1,11 +1,20 @@
 package com.appdev.mvp
 
+import androidx.annotation.CheckResult
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.http.*
 
 
 interface RetrofitApi {
+
+    @Headers(
+        "accept: application/json",
+        "content-type: application/json"
+    )
+    @GET("accounts/auth/emailcheck")
+    fun emailCheck(
+    ): Call<EmailCheckResult>
 
     @GET("accounts/auth")
     fun login(

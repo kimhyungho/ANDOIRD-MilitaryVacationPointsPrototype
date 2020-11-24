@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_sign_up.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,9 +41,13 @@ class LoginActivity : AppCompatActivity() {
         signUpView = sign_up
         loginBtn = login
 
+
     }
 
     private fun initListener() {
+
+
+
         loginBtn.setOnClickListener {
             val uuid = getUuid()
             val email = emailView.text.toString()

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -20,6 +21,11 @@ class SignUpActivity : AppCompatActivity() {
     lateinit var emailView: EditText
     lateinit var passwordView: EditText
     lateinit var signUpBtn: Button
+    lateinit var check: Button
+    lateinit var okBtn: Button
+    lateinit var authCodeView: EditText
+
+    private var authCode: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,10 +40,47 @@ class SignUpActivity : AppCompatActivity() {
         emailView = su_email
         passwordView = su_password
         signUpBtn = su_sign_up
-
+        check = su_check
+        okBtn = button
+        authCodeView = auth_code
     }
 
     private fun initListener() {
+        okBtn.setOnClickListener {
+            if (authCode != null && authCode.toString() == authCodeView.text.toString()) {
+                signUpBtn.isEnabled = true
+                emailView.isEnabled = false
+                check.isEnabled = false
+            }
+        }
+
+        check.setOnClickListener {
+            LoginClient(this, null, emailView.text.toString(), null).login().emailCheck()
+                .enqueue(object : Callback<EmailCheckResult> {
+                    override fun onFailure(call: Call<EmailCheckResult>, t: Throwable) {
+                    }
+                    override fun onResponse(
+                        call: Call<EmailCheckResult>,
+                        response: Response<EmailCheckResult>
+                    ) {
+                        if (response.isSuccessful) {
+                            Toast.makeText(
+                                this@SignUpActivity,
+                                "이메일이 전송되었습니다.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            authCodeView.isEnabled = true
+                            okBtn.isEnabled = true
+                            authCode = response.body()!!.auth_code
+                            Log.d("kkkk", response.body()!!.code.toString())
+                        } else {
+
+                        }
+                    }
+                })
+
+        }
+
         signUpBtn.setOnClickListener {
             val uuid = getUuid()
             val email = emailView.text.toString()

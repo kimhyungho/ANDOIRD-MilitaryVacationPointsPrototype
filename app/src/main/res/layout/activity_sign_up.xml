@@ -7,6 +7,7 @@
     tools:context=".SignUpActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout16"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -14,46 +15,89 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <EditText
+            android:backgroundTint="#D0D1D1"
             android:id="@+id/su_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
-            android:background="@drawable/gray_box"
-            android:hint="@string/email"
+            android:hint="이메일 계정"
             android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <EditText
+            android:inputType="textPassword"
+            android:backgroundTint="#DADADA"
             android:id="@+id/su_password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="32dp"
-            android:background="@drawable/gray_box"
-            android:hint="@string/password"
+            android:hint="비밀번호"
             android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/su_email" />
+            app:layout_constraintTop_toBottomOf="@+id/auth_code" />
 
         <Button
             android:id="@+id/su_sign_up"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="32dp"
+            android:enabled="false"
             android:text="@string/sign_up"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/su_password" />
+
+        <Button
+            android:id="@+id/su_check"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="이메일 인증"
+            app:layout_constraintBottom_toTopOf="@+id/auth_code"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/su_email" />
+
+        <EditText
+            android:id="@+id/auth_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/gray_box"
+            android:enabled="false"
+            android:hint="인증코드"
+            android:maxLength="4"
+            android:padding="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/su_password"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/su_check" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:enabled="false"
+            android:text="확인"
+            app:layout_constraintBottom_toTopOf="@+id/su_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/auth_code"
+            app:layout_constraintTop_toBottomOf="@+id/su_check" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,7 +35,6 @@ class SignUpActivity : AppCompatActivity() {
         initListener()
     }
 
-
     private fun initView() {
         emailView = su_email
         passwordView = su_password

@@ -3,16 +3,16 @@ package com.appdev.mvp
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
+import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,6 +26,12 @@ class LoginActivity : AppCompatActivity() {
     lateinit var passwordView: EditText
     lateinit var signUpView: TextView
     lateinit var loginBtn: Button
+    lateinit var backgroundView: ConstraintLayout
+    lateinit var logoView: ImageView
+    lateinit var normalView: TextView
+    lateinit var managerView: TextView
+
+    private var mode = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,12 +46,27 @@ class LoginActivity : AppCompatActivity() {
         passwordView = password
         signUpView = sign_up
         loginBtn = login
-
+        backgroundView = background
+        logoView = logoImage
+        normalView = normalMode
+        managerView = managerMode
 
     }
 
+    @SuppressLint("ResourceAsColor")
     private fun initListener() {
 
+        normalView.setOnClickListener {
+            mode = false
+            backgroundView.setBackgroundColor(Color.parseColor("#ffffff"))
+
+
+        }
+
+        managerView.setOnClickListener {
+            mode = true
+            backgroundView.setBackgroundColor(Color.parseColor("#4D916A"))
+        }
 
 
         loginBtn.setOnClickListener {

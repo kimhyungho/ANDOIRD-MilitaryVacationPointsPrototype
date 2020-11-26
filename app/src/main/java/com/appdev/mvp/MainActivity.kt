@@ -17,10 +17,10 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(tablayout, viewpager2) { tab, position ->
             val tabLayoutTextArray = arrayOf("홈", "내역 확인", "내 정보", "설정")
             val tabLayoutIconArray = arrayOf(
-                R.drawable.ic_baseline_calendar_today_24,
-                R.drawable.ic_baseline_assignment_24,
-                R.drawable.ic_baseline_person_outline_24,
-                R.drawable.ic_baseline_dehaze_24
+                R.drawable.ic_home,
+                R.drawable.ic_check,
+                R.drawable.ic_info,
+                R.drawable.ic_setting
             )
 
             tab.text = tabLayoutTextArray[position]

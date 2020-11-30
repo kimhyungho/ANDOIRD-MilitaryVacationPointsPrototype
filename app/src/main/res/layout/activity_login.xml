@@ -149,35 +149,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/normalMode"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/normal_login_button"
-            android:gravity="center"
-            android:padding="12dp"
-            android:text="@string/normal_login"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/frameLayout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/managerMode"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/manager_login_button"
-            android:gravity="center"
-            android:padding="12dp"
-            android:text="@string/manager_login"
-            android:textColor="@color/whiteColor"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/frameLayout"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:textStyle="bold" />
-
         <FrameLayout
             android:id="@+id/frameLayout"
             android:layout_width="1dp"

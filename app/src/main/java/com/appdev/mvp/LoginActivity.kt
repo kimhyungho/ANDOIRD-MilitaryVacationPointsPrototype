@@ -28,10 +28,6 @@ class LoginActivity : AppCompatActivity() {
     lateinit var loginBtn: Button
     lateinit var backgroundView: ConstraintLayout
     lateinit var logoView: ImageView
-    lateinit var normalView: TextView
-    lateinit var managerView: TextView
-
-    private var mode = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,25 +44,11 @@ class LoginActivity : AppCompatActivity() {
         loginBtn = login
         backgroundView = background
         logoView = logoImage
-        normalView = normalMode
-        managerView = managerMode
-
     }
 
     @SuppressLint("ResourceAsColor")
     private fun initListener() {
 
-        normalView.setOnClickListener {
-            mode = false
-            backgroundView.setBackgroundColor(Color.parseColor("#ffffff"))
-
-
-        }
-
-        managerView.setOnClickListener {
-            mode = true
-            backgroundView.setBackgroundColor(Color.parseColor("#4D916A"))
-        }
 
 
         loginBtn.setOnClickListener {

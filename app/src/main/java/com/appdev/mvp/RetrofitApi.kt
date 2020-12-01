@@ -16,9 +16,21 @@ interface RetrofitApi {
     fun emailCheck(
     ): Call<EmailCheckResult>
 
+    @Headers(
+        "accept: application/json",
+        "content-type: application/json"
+    )
     @GET("accounts/auth")
     fun login(
     ): Call<LoginResult>
+
+    @GET("accounts/info/pointlist")
+    fun getPoint(
+    ): Call<PointResult>
+
+    @GET("accounts/info/vacationlist")
+    fun getVacation(
+    ): Call<VacationResult>
 
 
     @Headers(

@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import java.text.SimpleDateFormat
 
-class VacationAdapter(val vacationList: List<VacationResult>, val activity: AppCompatActivity) :
+class VacationAdapter(val vacationList: List<Vacation>, val activity: AppCompatActivity) :
     RecyclerView.Adapter<VacationViewHolder>() {
 
 
@@ -25,8 +25,8 @@ class VacationAdapter(val vacationList: List<VacationResult>, val activity: AppC
     override fun onBindViewHolder(holder: VacationViewHolder, position: Int) {
         val item = vacationList[position]
         val mFormat = SimpleDateFormat("yyyy-MM-dd")
-        holder.date.text = mFormat.format(item.date)
-        holder.title.text = item.title
+        holder.date.text = mFormat.format(item.get_vacation_date)
+        holder.title.text = item.vacation_reason
         holder.vacation.text = item.vacation.toString() + "일"
     }
 

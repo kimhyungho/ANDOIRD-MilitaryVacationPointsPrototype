@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import java.text.SimpleDateFormat
 
-class PointAdapter(val pointList: List<PointResult>, val activity: AppCompatActivity) :
+class PointAdapter(val pointList: List<Point>, val activity: AppCompatActivity) :
     RecyclerView.Adapter<PointViewHolder>() {
 
 
@@ -25,8 +25,8 @@ class PointAdapter(val pointList: List<PointResult>, val activity: AppCompatActi
     override fun onBindViewHolder(holder: PointViewHolder, position: Int) {
         val item = pointList[position]
         val mFormat = SimpleDateFormat("yyyy-MM-dd")
-        holder.date.text = mFormat.format(item.date)
-        holder.title.text = item.title
+        holder.date.text = mFormat.format(item.get_point_date)
+        holder.title.text = item.point_reason
         holder.point.text = item.point.toString() + "포인트"
 
     }

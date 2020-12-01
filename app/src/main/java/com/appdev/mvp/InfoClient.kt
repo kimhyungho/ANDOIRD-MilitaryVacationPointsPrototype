@@ -7,7 +7,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class LoginClient(activity: Activity, uuid: String?, email: String?, password: String?) {
+class InfoClient(activity: Activity, email: String?) {
     lateinit var service: RetrofitApi
 
     var activity: Activity = activity
@@ -18,23 +18,13 @@ class LoginClient(activity: Activity, uuid: String?, email: String?, password: S
 
     val header = Interceptor {
         val original = it.request()
-        if (uuid == null && email != null && password == null) {
+        if (email != null) {
             val request = original.newBuilder()
                 .header("email", email)
                 .build()
             it.proceed(request)
-        } else if (email != null && password != null) {
-            val request = original.newBuilder()
-                .header("Authorization", uuid)
-                .header("email", email)
-                .header("password", password)
-                .build()
-            it.proceed(request)
-        } else {
-            val request = original.newBuilder()
-                .header("Authorization", uuid)
-                .build()
-            it.proceed(request)
+        }else {
+            it.proceed(original)
         }
     }
 
@@ -42,11 +32,13 @@ class LoginClient(activity: Activity, uuid: String?, email: String?, password: S
         .addInterceptor(header)
         .build()
 
-    fun login(): RetrofitApi = Retrofit.Builder()
+
+    fun getInfo(): RetrofitApi = Retrofit.Builder()
         .baseUrl("http://bonbangsasu.com:7777/")
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(RetrofitApi::class.java)
+
 
 }

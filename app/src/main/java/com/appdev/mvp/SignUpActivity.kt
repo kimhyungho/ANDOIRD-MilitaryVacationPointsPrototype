@@ -54,6 +54,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         check.setOnClickListener {
+
             LoginClient(this, null, emailView.text.toString(), null).login().emailCheck()
                 .enqueue(object : Callback<EmailCheckResult> {
                     override fun onFailure(call: Call<EmailCheckResult>, t: Throwable) {
@@ -63,6 +64,7 @@ class SignUpActivity : AppCompatActivity() {
                         response: Response<EmailCheckResult>
                     ) {
                         if (response.isSuccessful) {
+
                             Toast.makeText(
                                 this@SignUpActivity,
                                 "이메일이 전송되었습니다.",
@@ -119,6 +121,8 @@ class SignUpActivity : AppCompatActivity() {
                             response: Response<SignUpResult>
                         ) {
                             if (response.isSuccessful) {
+
+                                Log.d("kkkk", response.body()!!.msg)
                                 when (response.body()?.code) {
                                     1 -> {
                                         Toast.makeText(

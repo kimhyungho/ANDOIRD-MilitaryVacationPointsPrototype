@@ -50,7 +50,6 @@ class LoginActivity : AppCompatActivity() {
     private fun initListener() {
 
 
-
         loginBtn.setOnClickListener {
             val uuid = getUuid()
             val email = emailView.text.toString()
@@ -69,6 +68,7 @@ class LoginActivity : AppCompatActivity() {
                         if (response.isSuccessful) {
 
                             val code = response.body()?.code
+
                             when (code) {
                                 1 -> {
                                     val token = response.body()?.token
@@ -76,12 +76,24 @@ class LoginActivity : AppCompatActivity() {
                                         getSharedPreferences("info", Context.MODE_PRIVATE)
                                     val editor = sharedPreference.edit()
                                     editor.putString("token", token)
+                                    editor.putString("email", email)
+                                    editor.putInt("remained_vacation", response.body()!!.remained_vacation)
+                                    editor.putInt("remained_day", response.body()!!.remained_day)
                                     editor.commit()
+                                    Log.d(
+                                        "kkkk",
+                                        "" + response.body()?.code + response.body()?.name + response.body()?.code + response.body()?.remained_vacation + response.body()?.remained_day + response.body()?.position + response.body()?.rank
+                                    )
                                     Toast.makeText(
                                         this@LoginActivity,
                                         "로그인 성공",
                                         Toast.LENGTH_SHORT
                                     ).show()
+
+
+
+
+
 
                                     val intent =
                                         Intent(this@LoginActivity, MainActivity::class.java)
@@ -131,6 +143,8 @@ class LoginActivity : AppCompatActivity() {
                 UUID.randomUUID()
             }
         }
+
+        Log.d("kkkk", uuid.toString())
 
         return uuid.toString()
     }

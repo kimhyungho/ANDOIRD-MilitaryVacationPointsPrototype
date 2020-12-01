@@ -77,6 +77,8 @@ class LoginActivity : AppCompatActivity() {
                                     val editor = sharedPreference.edit()
                                     editor.putString("token", token)
                                     editor.putString("email", email)
+                                    editor.putString("position", response.body()!!.position)
+                                    editor.putString("name", response.body()!!.name)
                                     editor.putInt("remained_vacation", response.body()!!.remained_vacation)
                                     editor.putInt("remained_day", response.body()!!.remained_day)
                                     editor.commit()

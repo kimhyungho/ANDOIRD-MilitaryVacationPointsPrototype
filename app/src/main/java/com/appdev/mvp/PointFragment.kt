@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -70,6 +71,7 @@ class PointFragment : Fragment() {
 
 
     lateinit var recyclerView: RecyclerView
+    lateinit var scrollUpView: ConstraintLayout
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -87,6 +89,7 @@ class PointFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.po_recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity)
+        scrollUpView = view.findViewById<ConstraintLayout>(R.id.constraintLayout44)
 
 
         val sharedPreferences = activity!!.getSharedPreferences("info", Context.MODE_PRIVATE)
@@ -118,9 +121,6 @@ class PointFragment : Fragment() {
 
     private fun initListener() {
 
-        val mScrollPosition =
-            (recyclerView.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
-
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
@@ -128,9 +128,9 @@ class PointFragment : Fragment() {
                     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                         super.onScrolled(recyclerView, dx, dy)
                         if (dy > 0) {
-                            recyclerView.animate().translationY(-300F)
+                            scrollUpView.animate().translationY(-1000F)
                         } else {
-                            recyclerView.animate().translationY(0F)
+                            scrollUpView.animate().translationY(0F)
                         }
                     }
                 })

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:padding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/frameLayout28"
+        app:layout_constraintEnd_toStartOf="@+id/title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,7 +23,6 @@
         android:layout_marginStart="16dp"
         android:padding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/frameLayout25"
         app:layout_constraintStart_toEndOf="@+id/frameLayout28"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -1,7 +1,6 @@
 package com.appdev.mvp
 
 import android.content.Context
-import android.graphics.Point
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,9 +14,60 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
-import kotlin.collections.ArrayList
+
 
 class PointFragment : Fragment() {
+
+    val listPoint =
+
+        listOf(
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1), Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1), Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1), Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1), Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1), Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1), Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1), Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1), Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1), Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1), Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1), Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1),
+            Point(1, "d", Date(), "ddd", 1)
+        )
+
 
     lateinit var recyclerView: RecyclerView
 
@@ -28,11 +78,16 @@ class PointFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_point, container, false)
         initView(view)
+        initListener()
 
         return view
     }
 
     private fun initView(view: View) {
+
+        recyclerView = view.findViewById(R.id.po_recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(activity)
+
 
         val sharedPreferences = activity!!.getSharedPreferences("info", Context.MODE_PRIVATE)
         val email = sharedPreferences.getString("email", "null")
@@ -47,13 +102,12 @@ class PointFragment : Fragment() {
                     response: Response<PointResult>
                 ) {
                     if (response.isSuccessful) {
-                        recyclerView = view.findViewById(R.id.recyclerView)
                         val adapter =
                             PointAdapter(
-                                response.body()!!.data ?: listOf(),
+                                listPoint,
+//                                response.body()!!.data ?: listOf(),
                                 activity as AppCompatActivity
                             )
-                        recyclerView.layoutManager = LinearLayoutManager(activity)
                         recyclerView.adapter = adapter
                     }
                 }
@@ -64,6 +118,23 @@ class PointFragment : Fragment() {
 
     private fun initListener() {
 
+        val mScrollPosition =
+            (recyclerView.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
 
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                        super.onScrolled(recyclerView, dx, dy)
+                        if (dy > 0) {
+                            recyclerView.animate().translationY(-300F)
+                        } else {
+                            recyclerView.animate().translationY(0F)
+                        }
+                    }
+                })
+            }
+        })
     }
 }

@@ -4,7 +4,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/mainColor</item>
         <item name="colorPrimaryDark">#ffffff</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/secondColor</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>

@@ -18,6 +18,7 @@
         android:id="@+id/constraintLayout17"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintBottom_toTopOf="@+id/va_recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,5 +58,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView23" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout33"
+        android:layout_width="409dp"
+        android:layout_height="98dp"
+        android:background="@color/grayColor"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout17"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

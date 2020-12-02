@@ -6,4 +6,5 @@
     <color name="mainColor">#4D916A</color>
     <color name="whiteColor">#ffffff</color>
     <color name="grayColor">#F1F1F1</color>
+    <color name="secondColor">#7AAA6C</color>
 </resources>

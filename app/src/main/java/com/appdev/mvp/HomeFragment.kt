@@ -1,14 +1,15 @@
 package com.appdev.mvp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
-import kotlinx.android.synthetic.main.fragment_home.*
 import java.lang.NullPointerException
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -18,6 +19,8 @@ class HomeFragment : Fragment() {
 
     lateinit var calendarView: MaterialCalendarView
     lateinit var searchView: ImageView
+    lateinit var todayBtn: TextView
+    lateinit var searchBtn: ImageView
 
     val pinkDateList: MutableList<String> = Arrays.asList(
         "2020-11-01",
@@ -48,11 +51,27 @@ class HomeFragment : Fragment() {
 
     private fun initView(view: View) {
         calendarView = view.findViewById<MaterialCalendarView>(R.id.calendar)
-        searchView = view.findViewById<ImageView>(R.id.search)
+        searchView = view.findViewById<ImageView>(R.id.home_search)
+        todayBtn = view.findViewById(R.id.home_today)
+        searchBtn = view.findViewById(R.id.home_search)
+
 
     }
 
     private fun initListener() {
+        todayBtn.setOnClickListener {
+            calendarView.setCurrentDate(calendarView.currentDate, true)
+        }
+
+
+
+//        todayBtn.setOnClickListener {
+//            val mFormat = SimpleDateFormat(DATE_FORMAT)
+//            val today = mFormat.format(Date())
+//            calendarView.selectedDate = getCalendarDay(today)
+//        }
+
+
         calendarView.showOtherDates = MaterialCalendarView.SHOW_ALL
         setEvent(pinkDateList, green)
         setEvent(grayDateList, gray)

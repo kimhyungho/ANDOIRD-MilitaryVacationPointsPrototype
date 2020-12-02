@@ -1,6 +1,7 @@
 package com.appdev.mvp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,17 @@ class MyInfoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_myinfo, container, false)
+        val view = inflater.inflate(R.layout.fragment_myinfo, container, false)
+        initView(view)
+        initListener()
+        return view
+    }
+
+    private fun initView(view: View) {
+
+    }
+
+    private fun initListener() {
+
     }
 }

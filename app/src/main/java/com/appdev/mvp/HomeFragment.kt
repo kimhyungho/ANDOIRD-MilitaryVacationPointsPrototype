@@ -55,6 +55,8 @@ class HomeFragment : Fragment() {
         todayBtn = view.findViewById(R.id.home_today)
         searchBtn = view.findViewById(R.id.home_search)
 
+        calendarView
+
 
     }
 

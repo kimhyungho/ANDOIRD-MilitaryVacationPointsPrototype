@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_vacation.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,6 +21,8 @@ import kotlin.collections.ArrayList
 class VacationFragment : Fragment() {
 
     lateinit var recyclerView: RecyclerView
+    lateinit var dateView: TextView
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,10 +30,25 @@ class VacationFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_vacation, container, false)
         initView(view)
+        initListener()
         return view
     }
 
     private fun initView(view: View) {
+
+        recyclerView = view.findViewById(R.id.va_recyclerView)
+        dateView = view.findViewById(R.id.va_date)
+
+    }
+
+    private fun initListener() {
+
+        val instance = Calendar.getInstance()
+        val year = instance.get(Calendar.YEAR).toString()
+        val month = (instance.get(Calendar.MONTH) + 1).toString()
+        val date = instance.getActualMaximum(Calendar.DAY_OF_MONTH).toString()
+        dateView.text = "${year}.${month}.${date} 이후 소멸할 휴가는 "
+
         val sharedPreference = activity!!.getSharedPreferences("info", Context.MODE_PRIVATE)
         val email = sharedPreference.getString("email", "null")
         InfoClient(activity!!, email).getInfo().getVacation()
@@ -43,7 +62,6 @@ class VacationFragment : Fragment() {
                     response: Response<VacationResult>
                 ) {
                     if (response.isSuccessful) {
-                        recyclerView = view.findViewById(R.id.va_recyclerView)
                         val adapter = VacationAdapter(
                             response.body()!!.data ?: listOf(),
                             activity as AppCompatActivity
@@ -53,5 +71,6 @@ class VacationFragment : Fragment() {
                     }
                 }
             })
+
     }
 }

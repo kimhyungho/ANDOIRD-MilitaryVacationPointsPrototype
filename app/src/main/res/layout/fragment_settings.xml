@@ -26,10 +26,12 @@
                 android:layout_height="260dp"
                 app:layout_constraintBottom_toTopOf="@+id/constraintLayout21"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     app:cardCornerRadius="75dp"
@@ -117,6 +119,16 @@
                         app:layout_constraintStart_toEndOf="@+id/st_remain_day"
                         app:layout_constraintTop_toBottomOf="@+id/st_department" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:padding="10dp"
+                    android:src="@drawable/ic_baseline_dehaze_24"
+                    android:id="@+id/setting_upload_image"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:layout_constraintStart_toStartOf="@+id/cardView"
+                    app:layout_constraintTop_toTopOf="@+id/cardView"
+                    android:background="@drawable/green_button" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

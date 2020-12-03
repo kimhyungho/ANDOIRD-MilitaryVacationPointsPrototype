@@ -60,8 +60,11 @@ class SettingsFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1000) {
-            val uri: Uri = data!!.data!!
-            filePath = getImageFilePath(uri)
+            if(data != null){
+                val uri: Uri = data!!.data!!
+                filePath = getImageFilePath(uri)
+            }
+
         }
     }
 

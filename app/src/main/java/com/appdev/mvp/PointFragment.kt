@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
+import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,6 +27,7 @@ class PointFragment : Fragment() {
     lateinit var nameView: TextView
     lateinit var dateView: TextView
     lateinit var registerBtn: ConstraintLayout
+    lateinit var pointView: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,8 +49,15 @@ class PointFragment : Fragment() {
         scrollUpView = view.findViewById<ConstraintLayout>(R.id.constraintLayout44)
         nameView = view.findViewById(R.id.textView19)
         dateView = view.findViewById(R.id.textView38)
+        pointView = view.findViewById(R.id.pt_point)
 
+
+    }
+
+    private fun initListener() {
         val sharedPreferences = activity!!.getSharedPreferences("info", Context.MODE_PRIVATE)
+        val point = sharedPreferences.getInt("point", 0)
+        pointView.text = point.toString()
         val email = sharedPreferences.getString("email", "null")
         InfoClient(activity!!, email).getInfo().getPoint()
             .enqueue(object : Callback<PointResult> {
@@ -71,11 +80,6 @@ class PointFragment : Fragment() {
                 }
             })
 
-
-    }
-
-    private fun initListener() {
-        val sharedPreferences = activity!!.getSharedPreferences("info", Context.MODE_PRIVATE)
         val name = sharedPreferences.getString("name", "null")
         nameView.text = name + "님의 보유 포인트는"
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {

@@ -179,10 +179,10 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/textView51"
-                    app:layout_constraintStart_toEndOf="@+id/textView49" />
+                    app:layout_constraintStart_toEndOf="@+id/pt_point" />
 
                 <TextView
-                    android:id="@+id/textView49"
+                    android:id="@+id/pt_point"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/whiteColor"

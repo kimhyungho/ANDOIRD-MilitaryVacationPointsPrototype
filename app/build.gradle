@@ -63,5 +63,10 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:26.1.1')
     implementation 'com.google.firebase:firebase-analytics-ktx'
 
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0-alpha1'
+
+    implementation 'com.google.android.material:material:1.2.1'
+
+
 
 }

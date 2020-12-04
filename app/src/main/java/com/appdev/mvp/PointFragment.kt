@@ -35,21 +35,21 @@ class PointFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.fragment_point, container, false)
-        initView(view)
-        initListener()
+//        initView(view)
+//        initListener()
 
         return view
     }
 
     private fun initView(view: View) {
 
-        registerBtn = view.findViewById(R.id.register_point)
-        recyclerView = view.findViewById(R.id.po_recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-        scrollUpView = view.findViewById<ConstraintLayout>(R.id.constraintLayout44)
-        nameView = view.findViewById(R.id.textView19)
-        dateView = view.findViewById(R.id.textView38)
-        pointView = view.findViewById(R.id.pt_point)
+//        registerBtn = view.findViewById(R.id.register_point)
+//        recyclerView = view.findViewById(R.id.po_recyclerView)
+//        recyclerView.layoutManager = LinearLayoutManager(activity)
+//        scrollUpView = view.findViewById<ConstraintLayout>(R.id.constraintLayout44)
+//        nameView = view.findViewById(R.id.textView19)
+//        dateView = view.findViewById(R.id.textView38)
+//        pointView = view.findViewById(R.id.pt_point)
 
 
     }

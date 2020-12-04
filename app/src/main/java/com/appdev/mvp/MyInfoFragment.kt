@@ -20,14 +20,6 @@ class MyInfoFragment : Fragment() {
 
     lateinit var recyclerView: RecyclerView   // 휴가증 recycler view
 
-    private val couponList = mutableListOf<Coupon>(
-        Coupon(true, "2020.10.01", "2020.10.01", 12),
-        Coupon(true, "2020.10.01", "2020.10.01", 12),
-        Coupon(true, "2020.10.01", "2020.10.01", 12),
-        Coupon(true, "2020.10.01", "2020.10.01", 12),
-        Coupon(true, "2020.10.01", "2020.10.01", 12),
-        Coupon(true, "2020.10.01", "2020.10.01", 12)
-    )
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/whiteColor">
+    android:background="@color/whiteColor"
+    android:padding="4dp">
 
     <FrameLayout
         android:id="@+id/frameLayout3"
@@ -32,6 +33,8 @@
         android:layout_height="wrap_content"
         android:padding="4dp"
         android:text="TextView"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/frameLayout22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,8 +45,10 @@
         android:layout_marginStart="16dp"
         android:padding="4dp"
         android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/frameLayout23"
         app:layout_constraintStart_toEndOf="@+id/frameLayout22"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:textSize="16sp" />
 
     <TextView
         android:id="@+id/point"
@@ -51,6 +56,8 @@
         android:layout_height="wrap_content"
         android:padding="4dp"
         android:text="TextView"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.597"
         app:layout_constraintStart_toEndOf="@+id/frameLayout23"

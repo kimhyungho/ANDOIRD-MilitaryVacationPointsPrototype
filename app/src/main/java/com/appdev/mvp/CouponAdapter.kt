@@ -3,16 +3,17 @@ package com.appdev.mvp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import java.text.SimpleDateFormat
 
-class CouponAdapter(val couponList: List<Point>, val activity: AppCompatActivity) :
-    RecyclerView.Adapter<PointViewHolder>() {
+class CouponAdapter(val couponList: List<Coupon>, val activity: AppCompatActivity) :
+    RecyclerView.Adapter<CouponViewHolder>() {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PointViewHolder {
-        return PointViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CouponViewHolder {
+        return CouponViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_coupon, parent, false)
         )
     }
@@ -21,13 +22,13 @@ class CouponAdapter(val couponList: List<Point>, val activity: AppCompatActivity
         return couponList.size
     }
 
-    override fun onBindViewHolder(holder: PointViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CouponViewHolder, position: Int) {
         val item = couponList[position]
-        val mFormat = SimpleDateFormat("yyyy-MM-dd")
-        holder.date.text = mFormat.format(item.get_point_date)
-        holder.title.text = item.point_reason
-        holder.point.text = item.point.toString() + "포인트"
-
+        val mFormat = SimpleDateFormat("yyyy.MM.dd")
+        holder.check.text = if(item.check == true) "승인" else "기각"
+        holder.startDate.text = item.start_date
+        holder.endDate.text = item.end_date
+        holder.usePoint.text = item.use_point.toString()
     }
 
     override fun getItemId(position: Int): Long {
@@ -42,7 +43,8 @@ class CouponAdapter(val couponList: List<Point>, val activity: AppCompatActivity
 
 
 class CouponViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//    val date = itemView.findViewById<TextView>(R.id.date)
-//    val title = itemView.findViewById<TextView>(R.id.title)
-//    val point = itemView.findViewById<TextView>(R.id.point)
+    val check = itemView.findViewById<TextView>(R.id.check)
+    val startDate = itemView.findViewById<TextView>(R.id.startDate)
+    val endDate = itemView.findViewById<TextView>(R.id.endDate)
+    val usePoint = itemView.findViewById<TextView>(R.id.usePoint)
 }

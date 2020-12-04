@@ -43,7 +43,7 @@ class LoginClient(activity: Activity, uuid: String?, email: String?, password: S
         .build()
 
     fun login(): RetrofitApi = Retrofit.Builder()
-        .baseUrl("http://bonbangsasu.com:7777/")
+        .baseUrl("http://ec2-18-204-20-153.compute-1.amazonaws.com:7777/")
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()

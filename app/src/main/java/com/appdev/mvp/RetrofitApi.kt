@@ -32,6 +32,10 @@ interface RetrofitApi {
     fun getVacation(
     ): Call<VacationResult>
 
+    @GET("accounts/info/couponlist")
+    fun getCoupon(
+    ): Call<CouponResult>
+
 
     @Headers(
         "accept: application/json",
@@ -41,6 +45,7 @@ interface RetrofitApi {
     fun signUp(
         @Body body: SignUpRequest
     ): Call<SignUpResult>
+
 
 //    @POST("post/lol/updatepost")
 //    @FormUrlEncoded

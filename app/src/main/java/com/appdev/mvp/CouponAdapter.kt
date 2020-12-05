@@ -1,10 +1,10 @@
 package com.appdev.mvp
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.app.Dialog
 import android.graphics.Color
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +36,14 @@ class CouponAdapter(val couponList: List<Coupon>, val activity: AppCompatActivit
         holder.endDate.text = mFormat.format(item.end_date)
         holder.usePoint.text = item.use_point.toString() + " 포인트 사용"
 
+        holder.coupon_back.setOnClickListener {
+            val builder = AlertDialog.Builder(activity)
+            val inflater = activity.layoutInflater
+            val view = inflater.inflate(R.layout.fragment_vacation_pass, null)
+            builder.setView(view)
+            builder.show()
+        }
+
         if (item.end_date > Date()) {
             holder.endDate.setTextColor(Color.parseColor("#4D916A"))
             holder.startDate.setTextColor(Color.parseColor("#4D916A"))
@@ -44,8 +52,6 @@ class CouponAdapter(val couponList: List<Coupon>, val activity: AppCompatActivit
             holder.couponText.text = "조회"
             holder.arrow.setColorFilter(Color.parseColor("#4D916A"))
             holder.coupon_back.background.setTint(Color.parseColor("#4D916A"))
-
-
         }
     }
 

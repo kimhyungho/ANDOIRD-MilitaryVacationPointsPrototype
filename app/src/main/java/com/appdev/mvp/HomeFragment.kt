@@ -1,8 +1,8 @@
 package com.appdev.mvp
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +13,6 @@ import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
-import com.prolificinteractive.materialcalendarview.CalendarDay
-import com.prolificinteractive.materialcalendarview.MaterialCalendarView
-import java.lang.NullPointerException
-import java.text.ParseException
-import java.text.SimpleDateFormat
 import java.util.*
 
 class HomeFragment : Fragment() {
@@ -27,6 +22,9 @@ class HomeFragment : Fragment() {
     lateinit var searchBtn: ImageView
     lateinit var nameView: TextView
     lateinit var pointChart: PieChart
+    lateinit var vacationChart: PieChart
+    lateinit var remainDayChart: PieChart
+
 
     val pinkDateList: MutableList<String> = Arrays.asList(
         "2020-11-01",
@@ -62,27 +60,61 @@ class HomeFragment : Fragment() {
         searchBtn = view.findViewById(R.id.home_search)
         nameView = view.findViewById(R.id.home_name)
         pointChart = view.findViewById(R.id.point_chart)
+        vacationChart = view.findViewById(R.id.vacation_chart)
+        remainDayChart = view.findViewById(R.id.remain_day_chart)
 
 
     }
 
     private fun initListener() {
-        val  pieDataSet = PieDataSet(arrayListOf(PieEntry(30F), PieEntry(70F)), "")
+        val pieDataSet = PieDataSet(arrayListOf(PieEntry(30F)), "")
+        pieDataSet.setColors(Color.parseColor("#4D916A"), Color.parseColor("#C1C1C1"))
         val pieData = PieData(pieDataSet)
         pieData.setDrawValues(false)
         pointChart.setDrawMarkers(false); // To remove markers when click
         pointChart.description.isEnabled = false
         pointChart.setDrawSliceText(false)
         pointChart.legend.isEnabled = false
-        pointChart.centerText = "45p"
+        pointChart.centerText = "45"
+        pointChart.setCenterTextColor(Color.parseColor("#4D916A"))
         pointChart.data = pieData
         pointChart.invalidate()
+
+
+        val pieDataSet2 = PieDataSet(arrayListOf(PieEntry(30F)), "")
+        pieDataSet2.setColors(Color.parseColor("#4D916A"), Color.parseColor("#C1C1C1"))
+        val pieData2 = PieData(pieDataSet2)
+        pieData2.setDrawValues(false)
+        vacationChart.setDrawMarkers(false); // To remove markers when click
+        vacationChart.description.isEnabled = false
+        vacationChart.setDrawSliceText(false)
+        vacationChart.legend.isEnabled = false
+        vacationChart.centerText = "45"
+        vacationChart.setCenterTextColor(Color.parseColor("#4D916A"))
+        vacationChart.data = pieData2
+        vacationChart.invalidate()
+
+
+        val pieDataSet3 = PieDataSet(arrayListOf(PieEntry(30F)), "")
+        pieDataSet3.setColors(Color.parseColor("#4D916A"), Color.parseColor("#C1C1C1"))
+        val pieData3 = PieData(pieDataSet3)
+        pieData3.setDrawValues(false)
+        remainDayChart.setDrawMarkers(false); // To remove markers when click
+        remainDayChart.description.isEnabled = false
+        remainDayChart.setDrawSliceText(false)
+        remainDayChart.legend.isEnabled = false
+        remainDayChart.centerText = "45"
+        remainDayChart.centerCircleBox
+        remainDayChart.setCenterTextColor(Color.parseColor("#4D916A"))
+        remainDayChart.data = pieData3
+        remainDayChart.invalidate()
+
+
 
         val sharedPreferences = activity!!.getSharedPreferences("info", Context.MODE_PRIVATE)
         val name = sharedPreferences.getString("name", "null")
 
         nameView.text = "${name}님,"
-
 
 
 //        todayBtn.setOnClickListener {

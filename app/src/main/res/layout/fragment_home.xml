@@ -310,7 +310,7 @@
                 android:id="@+id/textView76"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="남은 복무일"
+                android:text="복무일"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

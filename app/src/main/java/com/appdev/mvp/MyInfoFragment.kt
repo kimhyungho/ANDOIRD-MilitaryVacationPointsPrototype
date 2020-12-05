@@ -42,6 +42,7 @@ class MyInfoFragment : Fragment() {
     // listener init
     private fun initListener() {
 
+        // 서버에 헤더에 email 을 넘겨주고 휴가증 정보 넘겨 받음
         val sharedPreferences = activity!!.getSharedPreferences("info", Context.MODE_PRIVATE)
         val email = sharedPreferences.getString("email", null)
         if (email != null) {

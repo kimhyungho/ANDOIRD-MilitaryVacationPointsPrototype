@@ -9,6 +9,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import java.lang.NullPointerException
@@ -22,6 +26,7 @@ class HomeFragment : Fragment() {
     lateinit var todayBtn: TextView
     lateinit var searchBtn: ImageView
     lateinit var nameView: TextView
+    lateinit var pointChart: PieChart
 
     val pinkDateList: MutableList<String> = Arrays.asList(
         "2020-11-01",
@@ -56,11 +61,23 @@ class HomeFragment : Fragment() {
         todayBtn = view.findViewById(R.id.home_today)
         searchBtn = view.findViewById(R.id.home_search)
         nameView = view.findViewById(R.id.home_name)
+        pointChart = view.findViewById(R.id.point_chart)
 
 
     }
 
     private fun initListener() {
+        val  pieDataSet = PieDataSet(arrayListOf(PieEntry(30F), PieEntry(70F)), "")
+        val pieData = PieData(pieDataSet)
+        pieData.setDrawValues(false)
+        pointChart.setDrawMarkers(false); // To remove markers when click
+        pointChart.description.isEnabled = false
+        pointChart.setDrawSliceText(false)
+        pointChart.legend.isEnabled = false
+        pointChart.centerText = "45p"
+        pointChart.data = pieData
+        pointChart.invalidate()
+
         val sharedPreferences = activity!!.getSharedPreferences("info", Context.MODE_PRIVATE)
         val name = sharedPreferences.getString("name", "null")
 

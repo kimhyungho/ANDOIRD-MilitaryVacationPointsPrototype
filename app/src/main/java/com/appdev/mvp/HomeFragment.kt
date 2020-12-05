@@ -1,5 +1,6 @@
 package com.appdev.mvp
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -20,6 +21,7 @@ class HomeFragment : Fragment() {
     lateinit var searchView: ImageView
     lateinit var todayBtn: TextView
     lateinit var searchBtn: ImageView
+    lateinit var nameView: TextView
 
     val pinkDateList: MutableList<String> = Arrays.asList(
         "2020-11-01",
@@ -53,13 +55,16 @@ class HomeFragment : Fragment() {
         searchView = view.findViewById<ImageView>(R.id.home_search)
         todayBtn = view.findViewById(R.id.home_today)
         searchBtn = view.findViewById(R.id.home_search)
-
+        nameView = view.findViewById(R.id.home_name)
 
 
     }
 
     private fun initListener() {
+        val sharedPreferences = activity!!.getSharedPreferences("info", Context.MODE_PRIVATE)
+        val name = sharedPreferences.getString("name", "null")
 
+        nameView.text = "${name}님,"
 
 
 
@@ -70,14 +75,12 @@ class HomeFragment : Fragment() {
 //        }
 
 
-
         searchView.setOnClickListener {
             val bottomSheet = SearchFragment()
             bottomSheet.show(activity!!.supportFragmentManager, bottomSheet.tag)
         }
 
     }
-
 
 
 }

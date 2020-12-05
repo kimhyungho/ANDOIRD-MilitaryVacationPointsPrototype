@@ -70,6 +70,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'com.github.applikeysolutions:cosmocalendar:1.0.4'
 
+    implementation 'com.riontech:calendar:1.0'
+
+
 
 
 }

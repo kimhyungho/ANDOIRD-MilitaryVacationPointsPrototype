@@ -13,6 +13,7 @@ import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
+import com.riontech.calendar.CustomCalendar
 import java.util.*
 
 class HomeFragment : Fragment() {
@@ -24,6 +25,7 @@ class HomeFragment : Fragment() {
     lateinit var pointChart: PieChart
     lateinit var vacationChart: PieChart
     lateinit var remainDayChart: PieChart
+    lateinit var calendarView : CustomCalendar
 
 
     val pinkDateList: MutableList<String> = Arrays.asList(
@@ -62,6 +64,8 @@ class HomeFragment : Fragment() {
         pointChart = view.findViewById(R.id.point_chart)
         vacationChart = view.findViewById(R.id.vacation_chart)
         remainDayChart = view.findViewById(R.id.remain_day_chart)
+        calendarView = view.findViewById(R.id.home_calendar)
+
 
 
     }
@@ -108,6 +112,9 @@ class HomeFragment : Fragment() {
         remainDayChart.setCenterTextColor(Color.parseColor("#4D916A"))
         remainDayChart.data = pieData3
         remainDayChart.invalidate()
+
+
+
 
 
 

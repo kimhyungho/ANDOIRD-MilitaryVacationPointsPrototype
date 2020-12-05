@@ -68,9 +68,12 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0-alpha1'
 
     implementation 'com.google.android.material:material:1.2.1'
-    implementation 'com.github.applikeysolutions:cosmocalendar:1.0.4'
 
     implementation 'com.riontech:calendar:1.0'
+
+    compile 'com.riontech:calendar:1.0'
+
+
 
 
 

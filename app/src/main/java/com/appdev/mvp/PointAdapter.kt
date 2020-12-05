@@ -29,6 +29,8 @@ class PointAdapter(val pointList: List<Point>, val activity: AppCompatActivity) 
         holder.title.text = item.point_reason
         holder.point.text = item.point.toString() + "포인트"
 
+        if()
+
     }
 
     override fun getItemId(position: Int): Long {

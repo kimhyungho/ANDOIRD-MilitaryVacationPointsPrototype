@@ -23,12 +23,6 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var pointView: TextView
     lateinit var upView: ImageView
     lateinit var downView: ImageView
-    lateinit var endYearView: TextView
-    lateinit var endMonthView: TextView
-    lateinit var endDayView: TextView
-    lateinit var startYearView: TextView
-    lateinit var startMonthView: TextView
-    lateinit var startDayView: TextView
     lateinit var normalVacationView: TextView
     lateinit var additionalVacationView: TextView
     lateinit var registerBtn: TextView
@@ -50,20 +44,14 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        calendarView = register_calendar
-        upView = up
-        downView = down
-        pointView = register_point
-
-        endYearView = register_end_year
-        endMonthView = register_end_month
-        endDayView = register_end_day
-        startYearView = register_start_year
-        startMonthView = register_start_month
-        startDayView = register_start_day
-        normalVacationView = normal_vacation
-        additionalVacationView = addtional_vacation
-        registerBtn = register_button
+//        calendarView = register_calendar
+//        upView = up
+//        downView = down
+//        pointView = register_point
+//
+//        normalVacationView = normal_vacation
+//        additionalVacationView = addtional_vacation
+//        registerBtn = register_button
     }
 
     private fun initListener() {
@@ -139,24 +127,12 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
-
-
-
-
-
-
         calendarView.selectionManager = RangeSelectionManager(OnDaySelectedListener {
             Log.d(" CALENDAR ", "Selected Dates : " + calendarView.selectedDates.size)
             if (calendarView.selectedDates.size > 1) {
                 val startDate = calendarView.selectedDates[0]
                 val endDate = calendarView.selectedDates[calendarView.selectedDates.size - 1]
 
-                endYearView.text = endDate.get(Calendar.YEAR).toString()
-                endMonthView.text = endDate.get(Calendar.MONTH).toString()
-                endDayView.text = endDate.get(Calendar.DAY_OF_MONTH).toString()
-                startYearView.text = startDate.get(Calendar.YEAR).toString()
-                startMonthView.text = startDate.get(Calendar.MONTH).toString()
-                startDayView.text = startDate.get(Calendar.DAY_OF_MONTH).toString()
                 return@OnDaySelectedListener
             }
 

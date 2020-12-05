@@ -117,8 +117,7 @@ class HomeFragment : Fragment() {
 
 
         registerBtn.setOnClickListener {
-            val intent = Intent(activity, RegisterActivity::class.java)
-            startActivity(intent)
+            SearchFragment().show(activity!!.supportFragmentManager, "search")
         }
 
 

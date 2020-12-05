@@ -1,6 +1,7 @@
 package com.appdev.mvp
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import com.github.mikephil.charting.data.PieEntry
 import com.riontech.calendar.CustomCalendar
 import java.util.*
 
+
 class HomeFragment : Fragment() {
 
     lateinit var searchView: ImageView
@@ -25,7 +27,8 @@ class HomeFragment : Fragment() {
     lateinit var pointChart: PieChart
     lateinit var vacationChart: PieChart
     lateinit var remainDayChart: PieChart
-    lateinit var calendarView : CustomCalendar
+    lateinit var calendarView: CustomCalendar
+    lateinit var registerBtn: ImageView
 
 
     val pinkDateList: MutableList<String> = Arrays.asList(
@@ -56,7 +59,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun initView(view: View) {
-//        calendarView = view.findViewById<MaterialCalendarView>(R.id.calendar)
         searchView = view.findViewById<ImageView>(R.id.home_search)
         todayBtn = view.findViewById(R.id.home_today)
         searchBtn = view.findViewById(R.id.home_search)
@@ -65,7 +67,7 @@ class HomeFragment : Fragment() {
         vacationChart = view.findViewById(R.id.vacation_chart)
         remainDayChart = view.findViewById(R.id.remain_day_chart)
         calendarView = view.findViewById(R.id.home_calendar)
-
+        registerBtn = view.findViewById(R.id.imageView3)
 
 
     }
@@ -114,8 +116,10 @@ class HomeFragment : Fragment() {
         remainDayChart.invalidate()
 
 
-
-
+        registerBtn.setOnClickListener {
+            val intent = Intent(activity, RegisterActivity::class.java)
+            startActivity(intent)
+        }
 
 
         val sharedPreferences = activity!!.getSharedPreferences("info", Context.MODE_PRIVATE)

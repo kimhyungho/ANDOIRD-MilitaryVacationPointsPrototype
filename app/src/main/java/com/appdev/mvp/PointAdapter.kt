@@ -53,5 +53,5 @@ class PointAdapter(val pointList: List<Point>, val activity: AppCompatActivity) 
 class PointViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val date = itemView.findViewById<TextView>(R.id.date)
     val title = itemView.findViewById<TextView>(R.id.title)
-    val point = itemView.findViewById<TextView>(R.id.point)
+    val point = itemView.findViewById<TextView>(R.id.register_point)
 }

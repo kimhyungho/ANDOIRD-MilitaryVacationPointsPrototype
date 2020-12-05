@@ -21,16 +21,16 @@ class SearchFragment() : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_register, container, false)
+//        val view = inflater.inflate(R.layout.fragment_register, container, false)
 
-        initView(view)
+//        initView(view)
         initListener()
 
         return view
     }
 
     private fun initView(view: View) {
-        pointView = view.findViewById<TextView>(R.id.point)
+        pointView = view.findViewById<TextView>(R.id.register_point)
         upView = view.findViewById<ImageView>(R.id.up)
         downView = view.findViewById<ImageView>(R.id.down)
     }

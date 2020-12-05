@@ -46,9 +46,6 @@ class SearchFragment() : BottomSheetDialogFragment() {
                 point -= 1
                 pointView.text = point.toString()
             }
-
         }
-
     }
-
 }

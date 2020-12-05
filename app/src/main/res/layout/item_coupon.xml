@@ -52,11 +52,11 @@
                     android:id="@+id/check"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="만료"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/startDate"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="승인" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/startDate"
@@ -87,7 +87,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/coupon_back"
-            android:backgroundTint="@color/grayColor"
+            android:backgroundTint="@color/deepGrayColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/constraintLayout52"
@@ -158,7 +158,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24"
-                    app:tint="@color/grayColor" />
+                    app:tint="@color/deepGrayColor" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

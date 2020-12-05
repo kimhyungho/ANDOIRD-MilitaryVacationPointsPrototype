@@ -8,4 +8,5 @@
     <color name="grayColor">#F4F4F4</color>
     <color name="secondColor">#92aa63</color>
     <color name="deepGrayColor">#C1C1C1</color>
+    <color name="redColor">#FF0000</color>
 </resources>

@@ -45,6 +45,7 @@ class CouponAdapter(val couponList: List<Coupon>, val activity: AppCompatActivit
         }
 
         if (item.end_date > Date()) {
+            holder.check.text = "유효"
             holder.endDate.setTextColor(Color.parseColor("#4D916A"))
             holder.startDate.setTextColor(Color.parseColor("#4D916A"))
             holder.couponImage.setImageResource(R.drawable.ic_check)

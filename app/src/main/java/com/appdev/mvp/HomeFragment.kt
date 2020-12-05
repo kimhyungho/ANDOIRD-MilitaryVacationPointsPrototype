@@ -85,7 +85,7 @@ class HomeFragment : Fragment() {
         pointChart.invalidate()
 
 
-        val pieDataSet2 = PieDataSet(arrayListOf(PieEntry(30F)), "")
+        val pieDataSet2 = PieDataSet(arrayListOf(PieEntry(12F), PieEntry(6F)), "")
         pieDataSet2.setColors(Color.parseColor("#4D916A"), Color.parseColor("#C1C1C1"))
         val pieData2 = PieData(pieDataSet2)
         pieData2.setDrawValues(false)
@@ -93,13 +93,13 @@ class HomeFragment : Fragment() {
         vacationChart.description.isEnabled = false
         vacationChart.setDrawSliceText(false)
         vacationChart.legend.isEnabled = false
-        vacationChart.centerText = "45"
+        vacationChart.centerText = "12"
         vacationChart.setCenterTextColor(Color.parseColor("#4D916A"))
         vacationChart.data = pieData2
         vacationChart.invalidate()
 
 
-        val pieDataSet3 = PieDataSet(arrayListOf(PieEntry(30F)), "")
+        val pieDataSet3 = PieDataSet(arrayListOf(PieEntry(509F), PieEntry(31F)), "")
         pieDataSet3.setColors(Color.parseColor("#4D916A"), Color.parseColor("#C1C1C1"))
         val pieData3 = PieData(pieDataSet3)
         pieData3.setDrawValues(false)
@@ -107,7 +107,7 @@ class HomeFragment : Fragment() {
         remainDayChart.description.isEnabled = false
         remainDayChart.setDrawSliceText(false)
         remainDayChart.legend.isEnabled = false
-        remainDayChart.centerText = "45"
+        remainDayChart.centerText = "509"
         remainDayChart.centerCircleBox
         remainDayChart.setCenterTextColor(Color.parseColor("#4D916A"))
         remainDayChart.data = pieData3

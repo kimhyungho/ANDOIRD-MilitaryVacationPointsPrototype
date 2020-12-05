@@ -1,5 +1,6 @@
 package com.appdev.mvp
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,9 +28,14 @@ class PointAdapter(val pointList: List<Point>, val activity: AppCompatActivity) 
         val mFormat = SimpleDateFormat("yyyy-MM-dd")
         holder.date.text = mFormat.format(item.get_point_date)
         holder.title.text = item.point_reason
-        holder.point.text = item.point.toString() + "포인트"
 
-        if()
+        if (item.point > 0) {
+            holder.point.setTextColor(Color.parseColor("#4D916A"))
+            holder.point.text = "+" + item.point
+        } else {
+            holder.point.text = "-" + item.point
+            holder.point.setTextColor(Color.parseColor("#E91E1E"))
+        }
 
     }
 

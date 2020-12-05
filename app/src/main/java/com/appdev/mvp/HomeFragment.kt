@@ -125,7 +125,7 @@ class HomeFragment : Fragment() {
         val sharedPreferences = activity!!.getSharedPreferences("info", Context.MODE_PRIVATE)
         val name = sharedPreferences.getString("name", "null")
 
-        nameView.text = "${name}님,"
+//        nameView.text = "${name}님,"
 
 
 //        todayBtn.setOnClickListener {

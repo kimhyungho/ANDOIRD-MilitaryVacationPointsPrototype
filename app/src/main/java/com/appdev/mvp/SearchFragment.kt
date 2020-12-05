@@ -29,6 +29,8 @@ class SearchFragment() : BottomSheetDialogFragment() {
         return view
     }
 
+
+
     private fun initView(view: View) {
         pointView = view.findViewById<TextView>(R.id.register_point)
         upView = view.findViewById<ImageView>(R.id.up)

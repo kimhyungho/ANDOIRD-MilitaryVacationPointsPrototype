@@ -1,5 +1,6 @@
 package com.appdev.mvp
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,10 @@ class MainActivity : AppCompatActivity() {
             OnSuccessListener<InstanceIdResult> { instanceIdResult ->
                 val token = instanceIdResult.token
                 Log.i("FCM Token", token)
+                val sharedPreferences = getSharedPreferences("info", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putString("FCM", token)
+                editor.commit()
             })
 
 

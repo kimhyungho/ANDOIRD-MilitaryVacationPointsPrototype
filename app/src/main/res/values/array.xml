@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="additional_vacation">
+        <item>보일러(3일)</item>
+        <item>이발병(5일)</item>
+        <item>또래 상담병(4일)</item>
+    </string-array>
+
+
+    <string-array name="normal_vacation">
+        <item>1일</item>
+        <item>2일</item>
+        <item>3일</item>
+        <item>4일</item>
+        <item>5일</item>
+        <item>6일</item>
+    </string-array>
+
+</resources>

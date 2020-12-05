@@ -8,6 +8,13 @@ import retrofit2.http.*
 
 interface RetrofitApi {
 
+    @POST("api/confirm/")
+    fun sendRequest(
+        @Body body: ConfirmRequest
+    ): Call<ConfirmResponse>
+
+
+
     @Headers(
         "accept: application/json",
         "content-type: application/json"

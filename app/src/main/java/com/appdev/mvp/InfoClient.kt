@@ -34,7 +34,7 @@ class InfoClient(activity: Activity, email: String?) {
 
 
     fun getInfo(): RetrofitApi = Retrofit.Builder()
-        .baseUrl("http://ec2-18-204-20-153.compute-1.amazonaws.com:7777/")
+        .baseUrl("http://militarypoint.co.kr:7777/")
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()

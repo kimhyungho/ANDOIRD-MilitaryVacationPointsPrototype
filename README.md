@@ -1,6 +1,10 @@
 # MilitaryVacationPointsPrototype
 <p align="center">
-  <img width="100" height="100" src="https://github.com/kimhyungho/ANDROID-duo9ham/blob/master/duo_logo.png">
+  <img width="200" src="https://github.com/kimhyungho/ANDOIRD-MilitaryVacationPointsPrototype/blob/master/app_icon/app_icon1.png"></br>
+  <img width="100" src="https://github.com/kimhyungho/ANDOIRD-MilitaryVacationPointsPrototype/blob/master/app_icon/app_icon2.png">
+  <img width="100" src="https://github.com/kimhyungho/ANDOIRD-MilitaryVacationPointsPrototype/blob/master/app_icon/app_icon3.png">
+  <img width="100" src="https://github.com/kimhyungho/ANDOIRD-MilitaryVacationPointsPrototype/blob/master/app_icon/app_icon4.png">
+
 </p>
 <p align="center">
   <b>MVP</b>
@@ -17,7 +21,7 @@ DJANGO 서버 기반의 어플리케이션</br>
 제 7회 SW융합 해커톤 대회 참여</br>
 FIREBASE를 사용한 푸쉬 알림</br>
 기능 미완성 프로토타입</br>
-달력 라이브러리 활용</br>
+캘린더 라이브러리를 활용한 휴가관리</br>
 
 
 # Used Library

@@ -16,7 +16,7 @@
 
 
 
-# About the Project
+# MVP란?
 DJANGO 서버 기반의 어플리케이션</br>
 제 7회 SW융합 해커톤 대회 참여</br>
 FIREBASE를 사용한 푸쉬 알림</br>
@@ -24,7 +24,7 @@ FIREBASE를 사용한 푸쉬 알림</br>
 캘린더 라이브러리를 활용한 휴가관리</br>
 
 
-# Used Library
+# 사용한 라이브러리
 <a href="https://github.com/bumptech/glide">glide</a></br>
 <a href="https://square.github.io/retrofit/">retrofit2</a></br>
 <a href="https://github.com/PhilJay/MPAndroidChart">MPA-Android-Chart</a></br>
@@ -32,10 +32,10 @@ FIREBASE를 사용한 푸쉬 알림</br>
 <a href="https://github.com/Riontech/CustomCalendar">riontech-calender</a></br>
 
 
-# Used API
+# 사용한 API
 <a href="">DJANGO 기반 서버 API</a></br>
 
-# App Image
+# 앱 이미지
 <p>
 <img width="200" src="https://github.com/kimhyungho/ANDOIRD-MilitaryVacationPointsPrototype/blob/master/mvp_app_image/1.jpg"> 
 <img width="200" src="https://github.com/kimhyungho/ANDOIRD-MilitaryVacationPointsPrototype/blob/master/mvp_app_image/2.jpg"> 
